@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Notes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f6fc;
+      color: #263248;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #263b80;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #e0e7ff;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 12px #0000000d;
+    }
+
+    .welcome h2 {
+      color: #263b80;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #0000000d;
+      border-top: 4px solid #5269cc;
+    }
+
+    .card h3 {
+      color: #263b80;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .progress {
+      margin-top: 25px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #0000000d;
+    }
+
+    .progress h2 {
+      color: #263b80;
+      margin-bottom: 15px;
+    }
+
+    .task {
+      display: block;
+      margin: 12px 0;
+      cursor: pointer;
+    }
+
+    .task input {
+      margin-right: 10px;
+      accent-color: #263b80;
+    }
+
+    .task input:checked + span {
+      text-decoration: line-through;
+      color: #718096;
+    }
+
+    button {
+      background: #263b80;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    button:hover {
+      background: #4058b5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>📚 Student Notes</h1>
+    <p>Learn • Practise • Grow</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to Student Notes!</h2>
+      <p>
+        This project helps students organize their learning topics,
+        track their goals, and practise Git and GitHub version control.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>📖 Subjects</h3>
+        <ul>
+          <li>Git and GitHub</li>
+          <li>Programming</li>
+          <li>Web Development</li>
+          <li>Database Management</li>
+          <li>Computer Networks</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🎯 My Goals</h3>
+        <ul>
+          <li>Learn Git commands</li>
+          <li>Upload projects to GitHub</li>
+          <li>Understand branching</li>
+          <li>Practise merging</li>
+          <li>Build useful projects</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>💻 Git Commands</h3>
+        <ul>
+          <li><code>git init</code></li>
+          <li><code>git add .</code></li>
+          <li><code>git commit</code></li>
+          <li><code>git push</code></li>
+          <li><code>git pull</code></li>
+          <li><code>git clone</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="progress">
+      <h2>My Learning Checklist</h2>
+
+      <label class="task">
+        <input type="checkbox">
+        <span>Understand Git initialization</span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox">
+        <span>Add and commit files</span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox">
+        <span>Push and pull changes</span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox">
+        <span>Create and switch branches</span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox">
+        <span>Merge and delete branches</span>
+      </label>
+
+      <button onclick="showProgress()">Check My Progress</button>
+      <p id="result" aria-live="polite" style="margin-top: 12px;"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Student Notes | A Beginner Git & GitHub Project</p>
+  </footer>
+
+  <script>
+    function showProgress() {
+      const tasks = document.querySelectorAll(
+        '.progress input[type="checkbox"]'
+      );
+
+      const completed = [...tasks].filter(
+        task => task.checked
+      ).length;
+
+      document.getElementById("result").textContent =
+        `You completed ${completed} out of ${tasks.length} learning goals!`;
+    }
+  </script>
+</body>
+</html>
